@@ -1,11 +1,12 @@
 
 let binSearch = (sortedArr, target) => {
     if (!sortedArr.length) return false;
+
     let l = 0;
     let r = sortedArr.length - 1;
-    let mid = ~~((l + r) / 2);
+
     while(l <= r){
-        mid = ~~((l + r) / 2);
+        let mid = ~~((l + r) / 2);
         if (sortedArr[mid] > target){
             r = mid - 1;
         }else if(sortedArr[mid] < target){
