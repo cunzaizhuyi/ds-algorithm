@@ -12,7 +12,7 @@ function tongSort(arr){
     })
     // 输出部分
     let resultArr = []
-    tong.forEach((count, value)=>{
+    tong.forEach((count, value)=>{ // value，index， arr回调函数的参数
         if(count !== 0){
             for(let i=1; i <= count; i++){
                 resultArr.push(value)

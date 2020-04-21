@@ -1,5 +1,8 @@
+
+
 let selectSort = (arr) => {
     for (let i = 0; i < arr.length; i++){
+        // 左半部分已排好。从右半部分找到最小的，交换到两部分的边界处
         let min = i;
         for (let j = i; j < arr.length; j++){
             if (arr[j] < arr[min]){
