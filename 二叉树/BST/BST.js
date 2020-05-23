@@ -20,11 +20,12 @@ class BST {
     insert(value) {
         if (!this.root) {
             this.root = new Node({value})
+            return;
         }
 
         let curNode = this.root
         let fn = (curNode) => {
-            if (value < curNode.value) {
+            if (value < curNode.value) { // 往左放
                 if (!curNode.left) {
                     curNode.left = new Node({value})
                     return true;
@@ -32,7 +33,7 @@ class BST {
                     curNode = curNode.left
                     return fn(curNode)
                 }
-            } else if (value > curNode.value) {
+            } else if (value > curNode.value) { // 往右放
                 if (!curNode.right) {
                     curNode.right = new Node({value})
                     return true;
@@ -77,10 +78,22 @@ class BST {
     }
 
 
-    // 验证一棵树是否是BST树
+    // 验证一棵树是否是BST树 leetcode98
     validate(root) {
         if (!this.root) return true;
-        let curNode = this.root
+        let res = []
+        let fn = (node)=>{
+            if (!node) return;
+            fn(node.left);
+            res.push(node.val);
+            fn(node.right);
+        }
+        fn(this.root);
+        for(let i=1;i<res.length;i++){
+            // 一定要>=，不能只>。因为二叉搜索树不允许重复值
+            if(res[i-1] >= res[i]){return false}
+        }
+        return true;
     }
 
 
