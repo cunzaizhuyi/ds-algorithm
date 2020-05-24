@@ -44,6 +44,7 @@ let kruskal = (n, edges) => {
     }
     return w;
 }
+
 console.log(kruskal(5,
     [
         [1, 2, 2],
