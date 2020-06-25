@@ -29,7 +29,7 @@ let dfsTmpl = (nums) => {
 // 全排列示例。
 let fn = (nums) => {
     let ans = [];
-    let hash = [];
+    let vis = [];
     let path = [];
     let dfs = (idx, nums) => {
         if(idx === nums.length) {
@@ -37,11 +37,13 @@ let fn = (nums) => {
             return;
         }
         for (let i = 0; i < nums.length; i++){
-            if(hash[i]) continue;
+            if(vis[i]) continue;
+
             path.push(nums[i]);
-            hash[i] = true; // 表示是否往res放过的哈希
+            vis[i] = true; // 表示是否往res放过的哈希
             dfs(idx + 1, nums);
-            hash[i] = false;
+
+            vis[i] = false;
             path.pop();
         }
     }

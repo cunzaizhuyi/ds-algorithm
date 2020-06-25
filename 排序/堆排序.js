@@ -4,6 +4,7 @@
 let headSort = (arr) => {
     let heapify = (heap, index) => {
         if (index > ~~(heap.length / 2) - 1) return;
+
         let l = index * 2 + 1 > heap.length - 1 ? index: index * 2 + 1;
         let r = index * 2 + 2 > heap.length - 1 ? index: index * 2 + 2;
         let max = Math.max(heap[index], heap[l], heap[r]);
