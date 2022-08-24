@@ -14,6 +14,7 @@
  */
 var inorderTraversal = function(root) {
     let arr = [];
+    // 核心代码，只需要下面dfs里的4行
     let dfs = (node) => {
         if (!node) return;
         dfs(node.left);
